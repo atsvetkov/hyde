@@ -10,7 +10,11 @@
           <div class="post">
             <h1 class="post-title">
               <a href="{{ .Permalink }}">
-                {{ .Title }}
+                {{ if isset .Params "displaytitle" }}
+                  {{ .Params.displaytitle }}
+                {{ else }}
+                  {{ .Title }}
+                {{ end}}
               </a>
             </h1>
 
@@ -23,6 +27,7 @@
               <a href="{{ .RelPermalink }}">Read More…</a>
             </div>
             {{ end }}
+
           </div>
           {{ end }}
         </div>
